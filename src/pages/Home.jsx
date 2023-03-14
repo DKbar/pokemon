@@ -32,7 +32,6 @@ export const Home = () => {
                 getPokemons(page, limit).then(data => {
                     setPokemonUrls(data.results.map(x => x.url))
                     setItemsCount(data.count)
-                    setLoading(false)
                 })
             },
             [page, limit]
@@ -47,6 +46,7 @@ export const Home = () => {
                                 ? data.filter((item) => item.name.toLowerCase().includes(search.toLowerCase()))
                                 : data
                         );
+                        setLoading(false)
                     })
                 }
             },
